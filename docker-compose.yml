@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+    # MySQL settings
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: spring_boot_training
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: dev
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./db/mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
