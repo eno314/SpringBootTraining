@@ -17,7 +17,7 @@ class JockeyController(
 ) {
 
     @GetMapping
-    fun getJockeys() = jockeyRepository.findAll();
+    fun getJockeys() = jockeyRepository.findAll()
 
     @GetMapping("/{id}")
     fun getJockey(@PathVariable id: String): Jockey? {
