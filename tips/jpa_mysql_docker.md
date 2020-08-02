@@ -1,5 +1,7 @@
 # Spring Boot Starter Data JPA + MySQL の開発環境をdockerを使って作る
 
+https://github.com/eno314/SpringBootTraining/pull/2
+
 ## MySQLのローカル環境をdockerで構築
 
 [1ea09f0](https://github.com/eno314/SpringBootTraining/commit/1ea09f0a3205cfaaaa008429b1ad80470d9eee02)

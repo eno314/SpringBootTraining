@@ -1,5 +1,7 @@
 # [ktlint](https://github.com/pinterest/ktlint) をGradleプロジェクトに追加する
 
+https://github.com/eno314/SpringBootTraining/pull/1
+
 ## [ktlint#-with-gradle](https://github.com/pinterest/ktlint#-with-gradle)
 Gradleのプロジェクトに追加するだけなら [jlleitschuh/ktlint-gradle](https://github.com/jlleitschuh/ktlint-gradle) か [jeremymailen/kotlinter-gradle](https://github.com/jeremymailen/kotlinter-gradle) のGradle pluginsを追加するだけでいい
 
