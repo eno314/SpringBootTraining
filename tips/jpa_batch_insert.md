@@ -196,7 +196,7 @@ Session Metrics {
 
 ## その他
 
-- order_inserts(update/delete) の設定を追加してみたが、解決結果はほぼ一緒だったので、指定しなくても良さそう
+- order_inserts(update/delete) の設定を追加してみたが、解決結果はほぼ一緒だったので、この条件だと指定しなくても良さそう
     - [aa84314](https://github.com/eno314/SpringBootTraining/commit/aa84314db6b23563e074f31764c944e53df472a0)
 
 ## 参考
