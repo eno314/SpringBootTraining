@@ -9,3 +9,7 @@ spring:
       hibernate:
         jdbc:
           batch_size: 100
+        # 指定しても解決結果はほぼ一緒
+        # order_deletes: true
+        # order_inserts: true
+        # order_updates: true
