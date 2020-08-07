@@ -6,14 +6,23 @@ plugins {
     id("io.spring.dependency-management") version "1.0.9.RELEASE"
     id("org.jlleitschuh.gradle.ktlint") version ktlintVersion
     id("org.jlleitschuh.gradle.ktlint-idea") version ktlintVersion
-    kotlin("jvm") version "1.3.72"
-    kotlin("plugin.spring") version "1.3.72"
-    kotlin("plugin.jpa") version "1.3.72"
+    id("io.freefair.lombok") version "5.1.1"
+
+    val kotlinVersion = "1.3.72"
+    kotlin("jvm") version kotlinVersion
+    kotlin("plugin.spring") version kotlinVersion
+    kotlin("plugin.jpa") version kotlinVersion
+
+    jacoco
 }
 
 group = "com.github.eno314"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
+
+sourceSets.main {
+    java.srcDirs("src/main/kotlin")
+}
 
 repositories {
     mavenCentral()
@@ -44,4 +53,11 @@ tasks.withType<KotlinCompile> {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "11"
     }
+}
+
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport)
+}
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
 }
