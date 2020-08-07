@@ -1,3 +1,15 @@
 spring:
   profiles:
     active: local
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 100
+        # 指定しても解決結果はほぼ一緒
+        # order_deletes: true
+        # order_inserts: true
+        # order_updates: true

@@ -1,11 +1,14 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/spring_boot_training
+    url: jdbc:mysql://localhost:3306/spring_boot_training?rewriteBatchedStatements=true
     username: dev
     password: dev
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update
-    open-in-view: false
     show-sql: true
+    properties:
+      hibernate:
+        # JPAの統計情報を出力する
+        generate_statistics: true
