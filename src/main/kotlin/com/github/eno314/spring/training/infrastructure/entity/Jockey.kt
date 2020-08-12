@@ -11,8 +11,8 @@ data class Jockey(
     val id: String,
 
     @Column(nullable = false)
-    val name: String,
+    var name: String,
 
     @Column(nullable = false)
-    val updatedAt: LocalDateTime
+    var updatedAt: LocalDateTime
 )
