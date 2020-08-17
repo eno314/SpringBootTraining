@@ -6,7 +6,7 @@ import org.mapstruct.Mapper
 import org.mapstruct.MappingTarget
 import org.mapstruct.factory.Mappers
 
-@Mapper
+@Mapper(componentModel = "spring")
 interface JockeyMapper {
     fun entityToDto(jockey: Jockey): JockeyDto
 
