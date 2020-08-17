@@ -18,3 +18,5 @@ ModelMapper の configuration に `NameTransformers.builder()` と `NamingConven
 - 参考
   - https://hepokon365.hatenablog.com/entry/2019/02/28/205009
 
+- ちなみに、MapStructを使えば、Builderを意識することなくマッピングしてくれる
+  - [359a69b](https://github.com/eno314/SpringBootTraining/commit/359a69b2724a7377c19800c8610538c4b4f742c2)

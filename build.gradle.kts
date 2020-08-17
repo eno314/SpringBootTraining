@@ -6,10 +6,10 @@ plugins {
     id("io.spring.dependency-management") version "1.0.9.RELEASE"
     id("org.jlleitschuh.gradle.ktlint") version ktlintVersion
     id("org.jlleitschuh.gradle.ktlint-idea") version ktlintVersion
-    id("io.freefair.lombok") version "5.1.1"
 
     val kotlinVersion = "1.3.72"
     kotlin("jvm") version kotlinVersion
+    kotlin("kapt") version kotlinVersion
     kotlin("plugin.spring") version kotlinVersion
     kotlin("plugin.jpa") version kotlinVersion
 
@@ -29,15 +29,21 @@ repositories {
 }
 
 dependencies {
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    val mapstructKotlinVersion = "1.3.1.2"
+    val mapstructVersion = "1.3.1.Final"
 
+    api("com.github.pozo:mapstruct-kotlin:$mapstructKotlinVersion")
+    api("org.mapstruct:mapstruct:${mapstructVersion}")
+
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("com.github.pozo:mapstruct-kotlin:1.3.1.2")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-
-    implementation("org.modelmapper:modelmapper:2.3.0")
-
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
+
+    kapt("com.github.pozo:mapstruct-kotlin-processor:$mapstructKotlinVersion")
+    kapt("org.mapstruct:mapstruct-processor:${mapstructVersion}")
 
     runtimeOnly("mysql:mysql-connector-java")
 

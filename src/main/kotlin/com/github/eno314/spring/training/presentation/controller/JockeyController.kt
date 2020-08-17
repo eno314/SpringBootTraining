@@ -1,6 +1,8 @@
 package com.github.eno314.spring.training.presentation.controller
 
+import com.github.eno314.spring.training.domain.dto.JockeyDto
 import com.github.eno314.spring.training.infrastructure.entity.Jockey
+import com.github.eno314.spring.training.infrastructure.mapper.JockeyMapper
 import com.github.eno314.spring.training.infrastructure.repository.JockeyRepository
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -13,15 +15,18 @@ import java.time.LocalDateTime
 @RestController
 @RequestMapping("/jockey")
 class JockeyController(
-    private val jockeyRepository: JockeyRepository
+    private val jockeyRepository: JockeyRepository,
+    private val jockeyMapper: JockeyMapper
 ) {
 
     @GetMapping
-    fun getJockeys() = jockeyRepository.findAll()
+    fun getJockeys(): List<JockeyDto> {
+        return jockeyRepository.findAll().map(jockeyMapper::entityToDto)
+    }
 
     @GetMapping("/{id}")
-    fun getJockey(@PathVariable id: String): Jockey? {
-        return jockeyRepository.findById(id).orElse(null)
+    fun getJockey(@PathVariable id: String): JockeyDto? {
+        return jockeyRepository.findById(id).map(jockeyMapper::entityToDto).orElse(null)
     }
 
     @PostMapping("/{id}")
