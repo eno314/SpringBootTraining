@@ -21,22 +21,25 @@ class JockeyDtoTest {
 
             val actual = jockeyMapper.entityToDto(jockey)
 
-            val expected = JockeyDto.builder()
-                .id("id")
-                .name("name")
-                .updatedAt(updatedAt)
-                .build()
+            val expected = JockeyDto("id", "name", updatedAt)
             assertThat(actual).isEqualTo(expected)
         }
 
         @Test
         fun jockeyDtoShouldMapJockey() {
             val updatedAt = LocalDateTime.now()
-            val jockeyDto = JockeyDto.builder()
-                .id("id")
-                .name("name")
-                .updatedAt(updatedAt)
-                .build()
+            val jockeyDto = JockeyDto("id", "name", updatedAt)
+
+            val actual = jockeyMapper.dtoToEntity(jockeyDto)
+
+            val expected = Jockey("id", "name", updatedAt)
+            assertThat(actual).isEqualTo(expected)
+        }
+
+        @Test
+        fun jockeyDtoShouldMapJockeyUpdating() {
+            val updatedAt = LocalDateTime.now()
+            val jockeyDto = JockeyDto("id", "name", updatedAt)
             val jockey = Jockey("id", "", LocalDateTime.MIN)
 
             val actual = jockeyMapper.dtoToEntity(jockeyDto, jockey)
