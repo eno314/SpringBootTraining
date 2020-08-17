@@ -6,7 +6,6 @@ plugins {
     id("io.spring.dependency-management") version "1.0.9.RELEASE"
     id("org.jlleitschuh.gradle.ktlint") version ktlintVersion
     id("org.jlleitschuh.gradle.ktlint-idea") version ktlintVersion
-    id("io.freefair.lombok") version "5.1.1"
 
     val kotlinVersion = "1.3.72"
     kotlin("jvm") version kotlinVersion
@@ -21,7 +20,7 @@ version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 sourceSets.main {
-    java.srcDirs("src/main/kotlin")
+    java.srcDirs("src/main/kotlin", "target/generated-sources/openapi/src/main/java")
 }
 
 repositories {
@@ -29,15 +28,20 @@ repositories {
 }
 
 dependencies {
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    val mapstructVersion = "1.3.1.Final"
+    val lombokVersion = "1.18.12"
 
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("com.github.pozo:mapstruct-kotlin:1.3.1.2")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-
-    implementation("org.modelmapper:modelmapper:2.3.0")
-
+    implementation("org.mapstruct:mapstruct:$mapstructVersion")
+    implementation("org.projectlombok:lombok:$lombokVersion")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
+
+    annotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
+    annotationProcessor("org.projectlombok:lombok:$lombokVersion")
 
     runtimeOnly("mysql:mysql-connector-java")
 
