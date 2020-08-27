@@ -28,7 +28,7 @@ class DebugTestDataService(
             thoroughbredRepository.save(createThoroughbred(i))
         }
 
-        for (i in 1..10) {
+        for (i in 1..1000) {
             val race = raceRepository.save(createRace(i))
 
             for (j in 1..10) {
