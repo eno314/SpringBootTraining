@@ -11,23 +11,27 @@ import javax.persistence.JoinColumn
 import javax.persistence.ManyToOne
 
 @Entity
-data class JockeyResult(
+data class RaceResult(
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    val id: Long,
+    val id: Long = 0,
 
     @Column(nullable = false)
-    val result: Int,
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "jockeyId", nullable = false)
-    val jockey: Jockey,
+    var result: Int,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "raceId", nullable = false)
-    val race: Race,
+    var race: Race,
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "thoroughbredId", nullable = false)
+    var thoroughbred: Thoroughbred,
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "jockeyId", nullable = false)
+    var jockey: Jockey,
 
     @Column(nullable = false)
-    val updatedAt: LocalDateTime
+    var updatedAt: LocalDateTime
 )
