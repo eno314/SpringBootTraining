@@ -33,5 +33,5 @@ data class RaceResult(
     var jockey: Jockey,
 
     @Column(nullable = false)
-    var updatedAt: LocalDateTime
+    var updatedAt: LocalDateTime,
 )
