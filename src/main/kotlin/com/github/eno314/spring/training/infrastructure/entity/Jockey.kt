@@ -16,5 +16,5 @@ data class Jockey(
     var name: String,
 
     @Column(nullable = false)
-    var updatedAt: LocalDateTime
+    var updatedAt: LocalDateTime,
 )

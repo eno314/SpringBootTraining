@@ -14,5 +14,5 @@ data class Thoroughbred(
     var name: String,
 
     @Column(nullable = false)
-    var updatedAt: LocalDateTime
+    var updatedAt: LocalDateTime,
 )

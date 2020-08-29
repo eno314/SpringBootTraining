@@ -18,5 +18,5 @@ data class Race(
     val name: String,
 
     @Column(nullable = false)
-    val updatedAt: LocalDateTime
+    val updatedAt: LocalDateTime,
 )
