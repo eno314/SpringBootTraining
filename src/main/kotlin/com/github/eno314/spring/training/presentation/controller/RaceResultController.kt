@@ -1,6 +1,7 @@
 package com.github.eno314.spring.training.presentation.controller
 
 import com.github.eno314.spring.training.domain.dto.RaceResultFindParams
+import com.github.eno314.spring.training.infrastructure.entity.DailyJockeyResult
 import com.github.eno314.spring.training.infrastructure.entity.RaceResult
 import com.github.eno314.spring.training.infrastructure.repository.RaceResultRepository
 import org.springframework.web.bind.annotation.GetMapping
@@ -14,5 +15,10 @@ class RaceResultController(private val raceResultRepository: RaceResultRepositor
     @GetMapping
     fun getAll(params: RaceResultFindParams): List<RaceResult> {
         return raceResultRepository.findAllOnQuery(params)
+    }
+
+    @GetMapping("/dailyJockeyResult")
+    fun getDailyJockeyResult(): List<DailyJockeyResult> {
+        return raceResultRepository.findAllDailyJockeyResult()
     }
 }
