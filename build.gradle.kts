@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    val ktlintVersion = "9.3.0"
+    val ktlintVersion = "9.4.0"
     id("org.springframework.boot") version "2.3.3.RELEASE"
     id("io.spring.dependency-management") version "1.0.10.RELEASE"
     id("org.jlleitschuh.gradle.ktlint") version ktlintVersion
@@ -33,7 +33,7 @@ dependencies {
     val mapstructVersion = "1.3.1.Final"
 
     api("com.github.pozo:mapstruct-kotlin:$mapstructKotlinVersion")
-    api("org.mapstruct:mapstruct:${mapstructVersion}")
+    api("org.mapstruct:mapstruct:$mapstructVersion")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("com.github.pozo:mapstruct-kotlin:1.3.1.2")
@@ -44,7 +44,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
 
     kapt("com.github.pozo:mapstruct-kotlin-processor:$mapstructKotlinVersion")
-    kapt("org.mapstruct:mapstruct-processor:${mapstructVersion}")
+    kapt("org.mapstruct:mapstruct-processor:$mapstructVersion")
 
     runtimeOnly("mysql:mysql-connector-java")
 
